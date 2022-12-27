@@ -2,7 +2,14 @@
 
 # Sitema de controle de contatos desenvolvido no padrão de projeto MVC.
 
-## ✔️ Técnicas e tecnologias utilizadas - ``Javascript`` - ``Bootstrap`` - ``MongoDB`` - ``EJS`` - ``Express`` ##
+## ✔️ Tecnologias utilizadas :
+
+- ``Javascript`` 
+- ``Bootstrap`` 
+- ``MongoDB``   
+- ``EJS`` 
+- ``Express`` 
+##
 
 
 # 🛠️ Para rodar o projeto:
