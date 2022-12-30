@@ -1,4 +1,3 @@
-
 const RegisterController = (req, res) => {
     res.render('Register.ejs');
 };

@@ -7,6 +7,7 @@ mongoose.connect(process.env.CONNECTSTRING, { useNewUrlParser: true, useUnifiedT
     app.emit('pronto');
   })
   .catch(e => console.log(e));
+  
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
@@ -20,7 +21,6 @@ app.use(helmet());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use(express.static(path.resolve(__dirname, 'public')));
 
 const sessionOptions = session({
   secret: 'akasdfj0út23453456+54qt23qv  qwf qwer qwer qewr asdasdasda a6()',
@@ -30,23 +30,24 @@ const sessionOptions = session({
   cookie: {
     maxAge: 1000 * 60 * 60 * 24 * 7,
     httpOnly: true
-  }
+  } 
 });
 app.use(sessionOptions);
 app.use(flash());
 
-app.set('views', path.resolve(__dirname, 'src', 'views'));
+app.set('views', path.resolve(__dirname, 'src', 'view'));
 app.set('view engine', 'ejs');
 
 app.use(csrf());
+
 // Nossos próprios middlewares
-app.use(middlewareGlobal);
+app.use(middlewareGlobal); 
 app.use(checkCsrfError);
 app.use(csrfMiddleware);
 app.use(routes);
 
 app.on('pronto', () => {
   app.listen(process.env.PORT, () => {
-    console.log('Servidor executando na porta 5000');
+    console.log('Servidor executando na porta 5000!');
   });
 });
