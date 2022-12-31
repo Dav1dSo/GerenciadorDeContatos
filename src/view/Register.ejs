@@ -9,6 +9,8 @@
             <p class="text-center lead">Crie sua conta!</p>
         </div> 
 
+        <%- include("includes/mensagens") %>
+
         <form action="/registerLogin" method="POST">
             <input type="hidden" name="_csrf" value="<%= csrfToken %>">   
             <div class="mb-3 w-50 mx-auto">
