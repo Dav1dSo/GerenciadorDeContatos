@@ -1,14 +1,10 @@
 const Login = require('../model/LoginModel');
-const bcryptjs = require('bcryptjs');
 
 const Register = async (req, res) => {
     const login = new Login(req.body);
     await login.Register();
  
     try {
-        const salt = bcryptjs.genSaltSync();
-        this.body.password = bcryptjs.hashSync(this.body.password, salt );
-
         if(login.error.length > 0) {
         req.flash('error', login.error);
             req.session.save(() => {
