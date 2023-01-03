@@ -9,7 +9,10 @@
             <p class="text-center lead">Faça seu login</p>
         </div> 
 
+        <%- include("includes/mensagens") %> 
+
         <form action="/login" method="POST">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>"> 
             <div class="mb-3 w-50 mx-auto">
               <label for="exampleInputEmail1" class="form-label">Username</label>
               <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">    
