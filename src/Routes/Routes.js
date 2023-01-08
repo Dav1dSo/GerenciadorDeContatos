@@ -22,5 +22,6 @@ Routes.post('/registerLogin', Register); //Trata os dados do formulario de cadas
 // Rotas de contatos
 Routes.get('/contatos', RequiredLogin, ContatosController);
 Routes.post('/contatos/create', RegisterContatosController);
+Routes.post('/contatos/editContatos/:id', EditeContatosController);
 
 module.exports = Routes;    
