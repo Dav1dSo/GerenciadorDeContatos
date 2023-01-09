@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { async } = require('regenerator-runtime');
 const validator = require('validator')
 
 const ContatoSchema = new mongoose.Schema({
@@ -34,6 +35,7 @@ Contato.prototype.valida = function() {
         this.error.push('Você precisa cadastrar um telefone ou e-mail válido!')
     }     
 }
+
 Contato.prototype.CleanUp = function() {
     for(const key in this.body) {
         if(typeof this.body[key] !== 'string') {
@@ -46,6 +48,12 @@ Contato.prototype.CleanUp = function() {
         telefone: this.body.telefone,
         email: this.body.email
     };
+}
+
+Contato.GetId = async function(id) {
+    if(typeof id !== 'string') return;
+    const user = await ContatoModel.findById(id);
+    return user;
 }
 
 module.exports = Contato;
