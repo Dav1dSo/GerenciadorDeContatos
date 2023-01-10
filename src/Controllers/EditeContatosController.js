@@ -1,10 +1,13 @@
+const Contato = require('../model/ContatosModel')
+
 const EditeContatosController = async (req, res) => {
-    res.render('Contatos.ejs');
 
     if(!req.params.id) return res.render('404.ejs');
-    const user = await Contato.GetId(req.params.id);
-    if(!user) return res.render('404.ejs');
+    const contato = await Contato.GetId(req.params.id);
+    if(!contato) return res.render('404.ejs');
+
+    res.render('Contatos.ejs', { contato });
 
 };
 
-module.exports = EditeContatosController;
+module.exports = EditeContatosController;  
