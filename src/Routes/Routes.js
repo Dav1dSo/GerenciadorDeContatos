@@ -9,10 +9,12 @@ const LogoutController = require('../Controllers/LogoutController');
 const ContatosController = require('../Controllers/ContatosController');
 const { RequiredLogin } = require('../middlewares/middlewares');
 const RegisterContatosController = require('../Controllers/ResgisterContatosController');
+const EditeContatosController = require('../Controllers/EditeContatosController')
+const EditeController = require('../Controllers/EditeController')
 
 Routes.get('/', HomeController);
 
-// Rotas de login
+// Rotas de login 
 Routes.get('/login', UserLogin);  // Loga usuario
 Routes.post('/login', LoginController);  // Loga usuario
 Routes.get('logout', LogoutController) // Faz logout do usuário
@@ -22,6 +24,7 @@ Routes.post('/registerLogin', Register); //Trata os dados do formulario de cadas
 // Rotas de contatos
 Routes.get('/contatos', RequiredLogin, ContatosController);
 Routes.post('/contatos/create', RegisterContatosController);
-Routes.post('/contatos/editContatos/:id', EditeContatosController);
+Routes.get('/contatos/editContatos/:id', EditeContatosController);
+Routes.post('/contatos/edit/:id', EditeController);
 
 module.exports = Routes;    
