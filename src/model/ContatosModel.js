@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { async } = require('regenerator-runtime');
 const validator = require('validator')
 
 const ContatoSchema = new mongoose.Schema({
@@ -52,8 +51,15 @@ Contato.prototype.CleanUp = function() {
 
 Contato.GetId = async function(id) {
     if(typeof id !== 'string') return;
-    const user = await ContatoModel.findById(id);
+    const user = await ContatoModel.findById(id); 
     return user;
+};
+
+Contato.prototype.Edite = async function(id) {
+    if(typeof id !== 'string') return;
+    this.valida();
+    if(this.error.length > 0 ) return;
+    this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, { new: true});
 }
 
-module.exports = Contato;
+module.exports = Contato;    
