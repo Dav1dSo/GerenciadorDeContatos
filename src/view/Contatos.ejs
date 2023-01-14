@@ -11,23 +11,27 @@
 
         <%- include("includes/mensagens") %> 
 
-        <form action="contatos/create" method="POST">
+        <% if(contato._id) { %>
+        <form action="/contatos/edit/<%= contato._id %>" method="POST">
+        <% } else { %> 
+            <form action="contatos/create" method="POST">
+          <% } %>
             <input type="hidden" name="_csrf" value="<%= csrfToken %>"> 
               <div class="mb-3 w-50 mx-auto">
                 <label for="exampleInputEmail1" class="form-label">Nome</label>
-                <input name="nome" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">    
+                <input value="<%= contato.nome %>" name="nome" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">    
               </div>
               <div class="mb-3 w-50 mx-auto">
                 <label for="exampleInputEmail1" class="form-label">Sobrenome</label>
-                <input name="sobrenome type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">    
+                <input value="<%= contato.sobrenome %>" name="sobrenome type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">      
               </div>
               <div class="mb-3 w-50 mx-auto">
                 <label for="exampleInputEmail1" class="form-label">Telefone</label>
-                <input name="telefone" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">    
+                <input value="<%= contato.telefone %>" name="telefone" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">    
               </div>
               <div class="mb-3 w-50 mx-auto">
                 <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">    
+                <input value="<%= contato.email %>" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">    
               </div>
               <div class="d-grid gap-2 col-1 mx-auto">
                   <input type="submit" class="btn btn-primary" type="button"></input>
