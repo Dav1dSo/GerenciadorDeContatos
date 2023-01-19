@@ -6,7 +6,9 @@
 
 - ``Javascript`` 
 - ``Bootstrap`` 
-- ``MongoDB``   
+- ``MongoDB``
+- ``Mongoose``
+- ``CrFToken``
 - ``EJS`` 
 - ``Express`` 
 ##
